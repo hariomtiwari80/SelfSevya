@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { assets } from '../assets/assets';
 import { useNavigate } from 'react-router-dom';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';

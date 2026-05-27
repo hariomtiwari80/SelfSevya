@@ -29,7 +29,6 @@ const navLinks = [
   { path: "/contact", label: "Contact", icon: FaEnvelope },
 ];
 
-
 const Navbar = () => {
   const navigate = useNavigate();
 
@@ -99,6 +98,7 @@ const Navbar = () => {
     <>
       <header className="fixed top-4 left-0 w-full z-50 px-4">
         <div className="max-w-7xl mx-auto bg-white/90 backdrop-blur-xl border border-slate-200 rounded-full shadow-lg px-6 py-3 flex items-center justify-between">
+          
           <div
             className="flex items-center cursor-pointer select-none shrink-0"
             onClick={() => navigate("/")}
@@ -110,10 +110,11 @@ const Navbar = () => {
               draggable="false"
             />
 
-            <span className="text-2xl font-bold text-blue-800 tracking-tight">
+            <span className="text-2xl bg-gradient-to-r from-slate-900 via-blue-900 to-cyan-600 bg-clip-text text-transparent font-bold">
               SelfSevya
             </span>
           </div>
+
           <nav
             className={`
               max-md:fixed
@@ -158,13 +159,13 @@ const Navbar = () => {
                   after:-bottom-[6px]
                   after:h-[2px]
                   after:rounded-full
-                  after:bg-blue-600
+                  after:bg-[#0c4a6e]
                   after:transition-all
                   after:duration-300
                   ${
                     isActive
-                      ? "text-blue-600 after:w-full"
-                      : "text-slate-700 after:w-0 hover:text-blue-600 hover:after:w-full"
+                      ? "text-[#0c4a6e] after:w-full"
+                      : "text-[#0c4a6e] after:w-0 hover:text-[#0c4a6e] hover:after:w-full"
                   }
                   `
                 }
@@ -184,7 +185,7 @@ const Navbar = () => {
               <div className="md:hidden flex flex-col gap-4 mt-10 w-[80%]">
                 <button
                   onClick={() => navigate("/login")}
-                  className="flex items-center justify-center gap-2 rounded-2xl bg-[#0c4a6e] hover:bg-[#09364f] px-6 py-4 text-white font-medium transition-all shadow-lg"
+                  className="flex items-center justify-center gap-2 rounded-lg bg-[#0c4a6e] hover:bg-[#09364f] px-6 h-[50px] text-white font-medium transition-all duration-300 shadow-lg"
                 >
                   <HiOutlineLogin />
                   Login
@@ -212,16 +213,13 @@ const Navbar = () => {
                 {showDropdown && <UserDropdown />}
               </div>
             ) : (
-              <>
-                <button
-                  onClick={() => navigate("/login")}
-                  className="hidden md:flex items-center gap-2 bg-blue-600 hover:bg-blue-700 transition-all text-white px-5 py-2.5 rounded-full text-sm font-medium shadow-lg"
-                >
-                  <HiOutlineLogin />
-
-                  Login
-                </button>
-              </>
+              <button
+                onClick={() => navigate("/login")}
+                className="hidden md:flex items-center gap-2 bg-[#0c4a6e] hover:bg-[#09364f] transition-all text-white px-5 py-2.5 rounded-full text-sm font-medium shadow-lg"
+              >
+                <HiOutlineLogin />
+                Login
+              </button>
             )}
 
             <button
@@ -233,6 +231,7 @@ const Navbar = () => {
           </div>
         </div>
       </header>
+
       <div className="h-[110px]" />
     </>
   );
